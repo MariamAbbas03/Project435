@@ -1,7 +1,7 @@
 import sqlite3
 
 def connect_to_db():
-    conn = sqlite3.connect('ecommerce.db')
+    conn = sqlite3.connect('ecommerce_customers.db')
     return conn
 
 def create_customers_table():
