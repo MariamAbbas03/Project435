@@ -87,6 +87,24 @@ def get_item_by_id(item_id):
 
     return item
 
+def get_item_by_name(item_name):
+    try:
+        conn = connect_to_db()
+        cur = conn.cursor()
+        cur.execute('SELECT * FROM inventory WHERE name = ?', (item_name,))
+        row = cur.fetchone()
+
+        if row:
+            item = dict(row)
+            return item
+        else:
+            return None
+
+    except Exception as e:
+        print(f"Error getting item by name: {e}")
+    finally:
+        conn.close()
+
 def update_item(item_id, updates):
     updated_item = {}
     try:
