@@ -45,7 +45,17 @@ def sample_customer3():
         'marital_status': 'Married',
     }
 
-
+@pytest.fixture
+def sample_customer4():
+    return {
+        'full_name': 'John Doe 4',
+        'username': 'john_doe4', 
+        'password': 'secure_password66823',
+        'age': 20,
+        'address': 'John Doe Street233, 55Innsbruck',
+        'gender': 'Male',
+        'marital_status': 'Married',
+    }
 
 def test_connect_to_db():
     # Test if connecting to the database is successful
@@ -113,6 +123,6 @@ def test_deduce_money_from_wallet(setup_test_database, sample_customer3):
 
 def test_get_customer_by_id(setup_test_database, sample_customer4):
     # Test if getting a customer by ID returns the correct customer
-    inserted_customer = insert_customer(sample_customer3)
+    inserted_customer = insert_customer(sample_customer4)
     retrieved_customer = get_customer_by_id(inserted_customer['customer_id'])
     assert retrieved_customer['username'] == inserted_customer['username']
