@@ -1,10 +1,25 @@
+"""
+Module that contains functions for connecting to and managing an SQLite3 database for recording sales in an ecommerce platform.
+"""
+
 import sqlite3
 
 def connect_to_db():
+    """
+    Establishes a connection to the SQLite3 database 'ecommerce_sales.db'.
+    
+    :return: The established connection object.
+    :rtype: sqlite3.Connection
+    """
     conn = sqlite3.connect('ecommerce_sales.db')
     return conn
 
 def create_sales_table():
+    """
+    Creates a table named 'sales' in the SQLite3 database if it does not already exist.
+
+    The table contains columns for sale_id, customer_id, item_id, sale_date, with foreign key constraints.
+    """
     try:
         conn = connect_to_db()
         conn.execute('''
@@ -25,6 +40,17 @@ def create_sales_table():
         conn.close()
 
 def make_sale(customer_id, item_id):
+    """
+    Records a sale in the 'sales' table.
+
+    :param customer_id: The unique identifier for the customer making the sale.
+    :type customer_id: int
+
+    :param item_id: The unique identifier for the item being sold.
+    :type item_id: int
+
+    :raises: Exception if an error occurs during the database operation.
+    """
     try:
         conn = connect_to_db()
         cur = conn.cursor()
@@ -40,6 +66,18 @@ def make_sale(customer_id, item_id):
         conn.close()
 
 def get_customer_sales(customer_id):
+    """
+    Retrieves sales made by a specific customer.
+
+    :param customer_id: The unique identifier for the customer.
+    :type customer_id: int
+
+    :return: A list of dictionaries, where each dictionary represents a sale with sale_id, sale_date, 
+             item_name, and price_per_item details.
+    :rtype: list
+
+    :raises: Exception if an error occurs during the database operation.
+    """
     sales = []
     try:
         conn = connect_to_db()
