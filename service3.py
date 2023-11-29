@@ -1,3 +1,7 @@
+"""
+Module that defines a Flask application for managing sales in an e-commerce platform.
+"""
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from database3 import *
@@ -10,10 +14,15 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 if __name__ == "__main__":
     create_sales_table()  # Create the sales table when the application runs
 
-# API Endpoints
 
 @app.route('/api/sales/make-sale', methods=['POST'])
 def api_make_sale():
+    """
+    Make a sale transaction for a customer.
+
+    :return: A JSON response indicating the status of the sale or any errors.
+    :rtype: dict
+    """
     sale_data = request.get_json()
     customer_username = sale_data.get('customer_username')
     item_name = sale_data.get('item_name')
@@ -36,6 +45,14 @@ def api_make_sale():
 
 @app.route('/api/sales/customer/<customer_username>', methods=['GET'])
 def api_get_customer_sales(customer_username):
+    """
+    Retrieve sales transactions for a specific customer.
+
+    :param customer_username: The username of the customer.
+    :type customer_username: str
+    :return: A JSON response containing the customer's sales or an error message.
+    :rtype: dict
+    """
     customer = get_customer_by_username(customer_username)
 
     if customer:
