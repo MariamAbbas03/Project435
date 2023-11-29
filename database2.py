@@ -1,10 +1,25 @@
+"""
+Module that contains functions for connecting to and managing an SQLite3 database for an ecommerce inventory.
+"""
+
 import sqlite3
 
 def connect_to_db():
+    """
+    Establishes a connection to the SQLite3 database 'ecommerce_inventory.db'.
+    
+    :return: The established connection object.
+    :rtype: sqlite3.Connection
+    """
     conn = sqlite3.connect('ecommerce_inventory.db')
     return conn
 
 def create_inventory_table():
+    """
+    Creates a table named 'inventory' in the SQLite3 database if it does not already exist.
+
+    The table contains columns for item_id, name, category, price_per_item, description, and count_in_stock.
+    """
     try:
         conn = connect_to_db()
         conn.execute('''
@@ -25,6 +40,18 @@ def create_inventory_table():
         conn.close()
 
 def add_item(item):
+    """
+    Inserts a new item record into the 'inventory' table.
+
+    :param item: A dictionary containing the item's details, including name, category, 
+                 price_per_item, description, and count_in_stock.
+    :type item: dict
+
+    :return: A dictionary containing the inserted item's details or an error message.
+    :rtype: dict
+
+    :raises: Exception if an error occurs during the database operation.
+    """
     added_item = {}
     try:
         conn = connect_to_db()
@@ -49,6 +76,14 @@ def add_item(item):
     return added_item
 
 def get_all_items():
+    """
+    Retrieves all items from the 'inventory' table.
+
+    :return: A list of dictionaries, where each dictionary represents an item.
+    :rtype: list
+
+    :raises: Exception if an error occurs during the database operation.
+    """
     items = []
     try:
         conn = connect_to_db()
@@ -69,6 +104,17 @@ def get_all_items():
     return items
 
 def get_item_by_id(item_id):
+    """
+    Retrieves an item from the 'inventory' table by its item_id.
+
+    :param item_id: The unique identifier for the item.
+    :type item_id: int
+
+    :return: A dictionary containing the item's details.
+    :rtype: dict
+
+    :raises: Exception if an error occurs during the database operation.
+    """
     item = {}
     try:
         conn = connect_to_db()
@@ -88,6 +134,17 @@ def get_item_by_id(item_id):
     return item
 
 def get_item_by_name(item_name):
+    """
+    Retrieves an item from the 'inventory' table by its name.
+
+    :param item_name: The name of the item.
+    :type item_name: str
+
+    :return: A dictionary containing the item's details or None if the item is not found.
+    :rtype: dict or None
+
+    :raises: Exception if an error occurs during the database operation.
+    """
     try:
         conn = connect_to_db()
         cur = conn.cursor()
@@ -106,6 +163,20 @@ def get_item_by_name(item_name):
         conn.close()
 
 def update_item(item_id, updates):
+    """
+    Updates an item in the 'inventory' table.
+
+    :param item_id: The unique identifier for the item to be updated.
+    :type item_id: int
+
+    :param updates: A dictionary containing the fields to be updated and their new values.
+    :type updates: dict
+
+    :return: A dictionary containing the updated item's details or an error message.
+    :rtype: dict
+
+    :raises: Exception if an error occurs during the database operation.
+    """
     updated_item = {}
     try:
         conn = connect_to_db()
@@ -133,6 +204,20 @@ def update_item(item_id, updates):
     return updated_item
 
 def deduce_item_from_stock(item_id, quantity):
+    """
+    Deducts a specified quantity from the item's stock.
+
+    :param item_id: The unique identifier for the item.
+    :type item_id: int
+
+    :param quantity: The quantity to be deducted from the item's stock.
+    :type quantity: int
+
+    :return: A dictionary containing the updated item's details or an error message.
+    :rtype: dict
+
+    :raises: Exception if an error occurs during the database operation.
+    """
     updated_item = {}
     try:
         conn = connect_to_db()
