@@ -6,7 +6,7 @@ import sqlite3
 
 def connect_to_db():
     """
-    Establishes a connection to the SQLite3 database 'ecommerce_sales.db'.
+    Establishes a connection to the database 'ecommerce_sales.db'.
     
     :return: The established connection object.
     :rtype: sqlite3.Connection
@@ -16,7 +16,7 @@ def connect_to_db():
 
 def create_sales_table():
     """
-    Creates a table named 'sales' in the SQLite3 database if it does not already exist.
+    Creates a table named 'sales' in the database if it does not already exist.
 
     The table contains columns for sale_id, customer_id, item_id, sale_date, with foreign key constraints.
     """

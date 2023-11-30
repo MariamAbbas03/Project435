@@ -1,5 +1,5 @@
 """
-Module that defines a Flask application for managing inventory-related operations in an e-commerce platform.
+Module that defines a Flask application for managing inventory-related operations in the platform.
 """
 
 from flask import Flask, request, jsonify

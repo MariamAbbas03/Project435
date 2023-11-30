@@ -1,12 +1,12 @@
 """
-Module that contains functions for connecting to and managing an SQLite3 database for an ecommerce service.
+Module that contains functions for connecting to and managing an SQLite3 database for customers service.
 """
 
 import sqlite3
 
 def connect_to_db():
     """
-    Establishes a connection to the SQLite3 database 'ecommerce_customers.db'.
+    Establishes a connection to database 'ecommerce_customers.db'.
 
     :return: The established connection object.
     :rtype: sqlite3.Connection
@@ -16,7 +16,7 @@ def connect_to_db():
 
 def create_customers_table():
     """
-    Creates a table named 'customers' in the SQLite3 database if it does not already exist.
+    Creates a table named 'customers' in the database if it does not already exist.
 
     The table contains columns for the customer's id, full name, username, password, age, address, gender, marital status, and wallet balance.
     """

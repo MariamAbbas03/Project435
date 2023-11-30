@@ -1,5 +1,5 @@
 """
-Module that defines a Flask application for managing customer-related operations in an e-commerce platform.
+Module that defines a Flask application for managing customer-related operations on the platform.
 """
 
 from flask import Flask, request, jsonify

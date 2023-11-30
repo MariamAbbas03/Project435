@@ -6,7 +6,7 @@ import sqlite3
 
 def connect_to_db():
     """
-    Establishes a connection to the SQLite3 database 'ecommerce_inventory.db'.
+    Establishes a connection to the database 'ecommerce_inventory.db'.
     
     :return: The established connection object.
     :rtype: sqlite3.Connection
@@ -16,7 +16,7 @@ def connect_to_db():
 
 def create_inventory_table():
     """
-    Creates a table named 'inventory' in the SQLite3 database if it does not already exist.
+    Creates a table named 'inventory' in the database if it does not already exist.
 
     The table contains columns for item_id, name, category, price_per_item, description, and count_in_stock.
     """
