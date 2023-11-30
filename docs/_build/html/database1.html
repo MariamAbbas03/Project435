@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>database1 module &mdash; PROJECT435 00.00.01 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d7bb8d4d"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="database1_test module" href="database1_test.html" />
+    <link rel="prev" title="Project435" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PROJECT435
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Project435</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">database1 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#database1.charge_customer_wallet"><code class="docutils literal notranslate"><span class="pre">charge_customer_wallet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database1.connect_to_db"><code class="docutils literal notranslate"><span class="pre">connect_to_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database1.create_customers_table"><code class="docutils literal notranslate"><span class="pre">create_customers_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database1.deduce_money_from_wallet"><code class="docutils literal notranslate"><span class="pre">deduce_money_from_wallet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database1.delete_customer"><code class="docutils literal notranslate"><span class="pre">delete_customer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database1.get_all_customers"><code class="docutils literal notranslate"><span class="pre">get_all_customers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database1.get_customer_by_id"><code class="docutils literal notranslate"><span class="pre">get_customer_by_id()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database1.get_customer_by_username"><code class="docutils literal notranslate"><span class="pre">get_customer_by_username()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database1.insert_customer"><code class="docutils literal notranslate"><span class="pre">insert_customer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database1.update_customer"><code class="docutils literal notranslate"><span class="pre">update_customer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database1_test.html">database1_test module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database2.html">database2 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database2_test.html">database2_test module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database3.html">database3 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database3_test.html">database3_test module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service1.html">service1 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service1_test.html">service1_test module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service2.html">service2 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service2_test.html">service2_test module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service3.html">service3 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service3_test.html">service3_test module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PROJECT435</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Project435</a></li>
+      <li class="breadcrumb-item active">database1 module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/database1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-database1">
+<span id="database1-module"></span><h1>database1 module<a class="headerlink" href="#module-database1" title="Link to this heading"></a></h1>
+<p>Module that contains functions for connecting to and managing an SQLite3 database for customers service.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="database1.charge_customer_wallet">
+<span class="sig-prename descclassname"><span class="pre">database1.</span></span><span class="sig-name descname"><span class="pre">charge_customer_wallet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">customer_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database1.html#charge_customer_wallet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database1.charge_customer_wallet" title="Link to this definition"></a></dt>
+<dd><p>Adds the specified amount to a customer’s wallet balance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>customer_id</strong> (<em>int</em>) – The ID of the customer.</p></li>
+<li><p><strong>amount</strong> (<em>float</em>) – The amount to add to the customer’s wallet balance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the updated customer’s details or an error message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database1.connect_to_db">
+<span class="sig-prename descclassname"><span class="pre">database1.</span></span><span class="sig-name descname"><span class="pre">connect_to_db</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database1.html#connect_to_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database1.connect_to_db" title="Link to this definition"></a></dt>
+<dd><p>Establishes a connection to database ‘ecommerce_customers.db’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The established connection object.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>sqlite3.Connection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database1.create_customers_table">
+<span class="sig-prename descclassname"><span class="pre">database1.</span></span><span class="sig-name descname"><span class="pre">create_customers_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database1.html#create_customers_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database1.create_customers_table" title="Link to this definition"></a></dt>
+<dd><p>Creates a table named ‘customers’ in the database if it does not already exist.</p>
+<p>The table contains columns for the customer’s id, full name, username, password, age, address, gender, marital status, and wallet balance.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database1.deduce_money_from_wallet">
+<span class="sig-prename descclassname"><span class="pre">database1.</span></span><span class="sig-name descname"><span class="pre">deduce_money_from_wallet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">customer_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database1.html#deduce_money_from_wallet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database1.deduce_money_from_wallet" title="Link to this definition"></a></dt>
+<dd><p>Deducts the specified amount from a customer’s wallet balance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>customer_id</strong> (<em>int</em>) – The ID of the customer.</p></li>
+<li><p><strong>amount</strong> (<em>float</em>) – The amount to deduct from the customer’s wallet balance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the updated customer’s details or an error message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database1.delete_customer">
+<span class="sig-prename descclassname"><span class="pre">database1.</span></span><span class="sig-name descname"><span class="pre">delete_customer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">customer_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database1.html#delete_customer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database1.delete_customer" title="Link to this definition"></a></dt>
+<dd><p>Deletes a customer record from the ‘customers’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>customer_id</strong> (<em>int</em>) – The ID of the customer to delete.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a status message indicating whether the deletion was successful or an error message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database1.get_all_customers">
+<span class="sig-prename descclassname"><span class="pre">database1.</span></span><span class="sig-name descname"><span class="pre">get_all_customers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database1.html#get_all_customers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database1.get_all_customers" title="Link to this definition"></a></dt>
+<dd><p>Retrieves all customer records from the ‘customers’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of dictionaries containing the details of all customers.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database1.get_customer_by_id">
+<span class="sig-prename descclassname"><span class="pre">database1.</span></span><span class="sig-name descname"><span class="pre">get_customer_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">customer_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database1.html#get_customer_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database1.get_customer_by_id" title="Link to this definition"></a></dt>
+<dd><p>Retrieves a customer record from the ‘customers’ table based on the provided customer ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>customer_id</strong> (<em>int</em>) – The ID of the customer to retrieve.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the details of the customer with the provided ID, or an empty dictionary if not found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database1.get_customer_by_username">
+<span class="sig-prename descclassname"><span class="pre">database1.</span></span><span class="sig-name descname"><span class="pre">get_customer_by_username</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database1.html#get_customer_by_username"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database1.get_customer_by_username" title="Link to this definition"></a></dt>
+<dd><p>Retrieves a customer record from the ‘customers’ table based on the provided username.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>username</strong> (<em>str</em>) – The username of the customer to retrieve.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the details of the customer with the provided username, or an empty dictionary if not found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database1.insert_customer">
+<span class="sig-prename descclassname"><span class="pre">database1.</span></span><span class="sig-name descname"><span class="pre">insert_customer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">customer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database1.html#insert_customer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database1.insert_customer" title="Link to this definition"></a></dt>
+<dd><p>Inserts a new customer record into the ‘customers’ table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>customer</strong> (<em>dict</em>) – A dictionary containing the customer’s details.
+Required keys: ‘full_name’, ‘username’, ‘password’, ‘age’, ‘address’, ‘gender’, ‘marital_status’</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inserted customer’s details or an error message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database1.update_customer">
+<span class="sig-prename descclassname"><span class="pre">database1.</span></span><span class="sig-name descname"><span class="pre">update_customer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">customer_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updates</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database1.html#update_customer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database1.update_customer" title="Link to this definition"></a></dt>
+<dd><p>Updates a customer record in the ‘customers’ table with the provided changes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>customer_id</strong> (<em>int</em>) – The ID of the customer to update.</p></li>
+<li><p><strong>updates</strong> (<em>dict</em>) – A dictionary containing the fields to update and their new values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the updated customer’s details or an error message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="Project435" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="database1_test.html" class="btn btn-neutral float-right" title="database1_test module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Mariam Abbas Mahdi Ajrouch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

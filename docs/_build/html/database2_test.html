@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>database2_test module &mdash; PROJECT435 00.00.01 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d7bb8d4d"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="database3 module" href="database3.html" />
+    <link rel="prev" title="database2 module" href="database2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PROJECT435
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Project435</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="database1.html">database1 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database1_test.html">database1_test module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database2.html">database2 module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">database2_test module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#database2_test.sample_item1"><code class="docutils literal notranslate"><span class="pre">sample_item1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database2_test.sample_item2"><code class="docutils literal notranslate"><span class="pre">sample_item2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database2_test.sample_item3"><code class="docutils literal notranslate"><span class="pre">sample_item3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database2_test.sample_item4"><code class="docutils literal notranslate"><span class="pre">sample_item4()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database2_test.setup_test_inventory"><code class="docutils literal notranslate"><span class="pre">setup_test_inventory()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database2_test.test_add_item"><code class="docutils literal notranslate"><span class="pre">test_add_item()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database2_test.test_connect_to_db"><code class="docutils literal notranslate"><span class="pre">test_connect_to_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database2_test.test_create_inventory_table"><code class="docutils literal notranslate"><span class="pre">test_create_inventory_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database2_test.test_deduce_item_from_stock"><code class="docutils literal notranslate"><span class="pre">test_deduce_item_from_stock()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database2_test.test_get_all_items"><code class="docutils literal notranslate"><span class="pre">test_get_all_items()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database2_test.test_get_item_by_id"><code class="docutils literal notranslate"><span class="pre">test_get_item_by_id()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database2_test.test_get_item_by_name"><code class="docutils literal notranslate"><span class="pre">test_get_item_by_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database2_test.test_update_item"><code class="docutils literal notranslate"><span class="pre">test_update_item()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="database3.html">database3 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database3_test.html">database3_test module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service1.html">service1 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service1_test.html">service1_test module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service2.html">service2 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service2_test.html">service2_test module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service3.html">service3 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service3_test.html">service3_test module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PROJECT435</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Project435</a></li>
+      <li class="breadcrumb-item active">database2_test module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/database2_test.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-database2_test">
+<span id="database2-test-module"></span><h1>database2_test module<a class="headerlink" href="#module-database2_test" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="database2_test.sample_item1">
+<span class="sig-prename descclassname"><span class="pre">database2_test.</span></span><span class="sig-name descname"><span class="pre">sample_item1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database2_test.html#sample_item1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database2_test.sample_item1" title="Link to this definition"></a></dt>
+<dd><p>Fixture for a sample item data dictionary.
+:return: Dictionary representing a sample item.
+:rtype: dict</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database2_test.sample_item2">
+<span class="sig-prename descclassname"><span class="pre">database2_test.</span></span><span class="sig-name descname"><span class="pre">sample_item2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database2_test.html#sample_item2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database2_test.sample_item2" title="Link to this definition"></a></dt>
+<dd><p>Fixture for a sample item
+:return: Dictionary representing a sample item.
+:rtype: dict</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database2_test.sample_item3">
+<span class="sig-prename descclassname"><span class="pre">database2_test.</span></span><span class="sig-name descname"><span class="pre">sample_item3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database2_test.html#sample_item3"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database2_test.sample_item3" title="Link to this definition"></a></dt>
+<dd><p>Fixture for a sample item data dictionary (item_id: 3).
+:return: Dictionary representing a sample item.
+:rtype: dict</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database2_test.sample_item4">
+<span class="sig-prename descclassname"><span class="pre">database2_test.</span></span><span class="sig-name descname"><span class="pre">sample_item4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database2_test.html#sample_item4"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database2_test.sample_item4" title="Link to this definition"></a></dt>
+<dd><p>Fixture for a sample item data dictionary.
+:return: Dictionary representing a sample item.
+:rtype: dict</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database2_test.setup_test_inventory">
+<span class="sig-prename descclassname"><span class="pre">database2_test.</span></span><span class="sig-name descname"><span class="pre">setup_test_inventory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database2_test.html#setup_test_inventory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database2_test.setup_test_inventory" title="Link to this definition"></a></dt>
+<dd><p>Fixture to set up a test inventory database and create the inventory table.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database2_test.test_add_item">
+<span class="sig-prename descclassname"><span class="pre">database2_test.</span></span><span class="sig-name descname"><span class="pre">test_add_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setup_test_inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_item1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database2_test.html#test_add_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database2_test.test_add_item" title="Link to this definition"></a></dt>
+<dd><p>Test if adding an item is successful.
+:param setup_test_inventory: Fixture to set up the test inventory database.
+:param sample_item1: Fixture for a sample item data dictionary.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database2_test.test_connect_to_db">
+<span class="sig-prename descclassname"><span class="pre">database2_test.</span></span><span class="sig-name descname"><span class="pre">test_connect_to_db</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database2_test.html#test_connect_to_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database2_test.test_connect_to_db" title="Link to this definition"></a></dt>
+<dd><p>Test if connecting to the inventory database is successful.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database2_test.test_create_inventory_table">
+<span class="sig-prename descclassname"><span class="pre">database2_test.</span></span><span class="sig-name descname"><span class="pre">test_create_inventory_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setup_test_inventory</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database2_test.html#test_create_inventory_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database2_test.test_create_inventory_table" title="Link to this definition"></a></dt>
+<dd><p>Test if creating the inventory table is successful.
+The setup_test_inventory fixture ensures that the table is created before running this test.
+:param setup_test_inventory: Fixture to set up the test inventory database.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database2_test.test_deduce_item_from_stock">
+<span class="sig-prename descclassname"><span class="pre">database2_test.</span></span><span class="sig-name descname"><span class="pre">test_deduce_item_from_stock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setup_test_inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_item4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database2_test.html#test_deduce_item_from_stock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database2_test.test_deduce_item_from_stock" title="Link to this definition"></a></dt>
+<dd><p>Test if deducting an item from stock is successful.
+:param setup_test_inventory: Fixture to set up the test inventory database.
+:param sample_item4: Fixture for a sample item data dictionary.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database2_test.test_get_all_items">
+<span class="sig-prename descclassname"><span class="pre">database2_test.</span></span><span class="sig-name descname"><span class="pre">test_get_all_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setup_test_inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_item1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database2_test.html#test_get_all_items"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database2_test.test_get_all_items" title="Link to this definition"></a></dt>
+<dd><p>Test if getting all items returns the correct number of items.
+Already added item 1 in a previous test.
+:param setup_test_inventory: Fixture to set up the test inventory database.
+:param sample_item1: Fixture for a sample item data dictionary.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database2_test.test_get_item_by_id">
+<span class="sig-prename descclassname"><span class="pre">database2_test.</span></span><span class="sig-name descname"><span class="pre">test_get_item_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setup_test_inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_item2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database2_test.html#test_get_item_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database2_test.test_get_item_by_id" title="Link to this definition"></a></dt>
+<dd><p>Test if getting an item by ID returns the correct item.
+:param setup_test_inventory: Fixture to set up the test inventory database.
+:param sample_item2: Fixture for a sample item data dictionary (item_id: 2).
+:return: None
+:rtype: None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database2_test.test_get_item_by_name">
+<span class="sig-prename descclassname"><span class="pre">database2_test.</span></span><span class="sig-name descname"><span class="pre">test_get_item_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setup_test_inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_item3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database2_test.html#test_get_item_by_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database2_test.test_get_item_by_name" title="Link to this definition"></a></dt>
+<dd><p>Test if getting an item by name returns the correct item.
+:param setup_test_inventory: Fixture to set up the test inventory database.
+:param sample_item3: Fixture for a sample item data dictionary (item_id: 3).
+:return: None
+:rtype: None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database2_test.test_update_item">
+<span class="sig-prename descclassname"><span class="pre">database2_test.</span></span><span class="sig-name descname"><span class="pre">test_update_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setup_test_inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_item2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database2_test.html#test_update_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database2_test.test_update_item" title="Link to this definition"></a></dt>
+<dd><p>Test if updating an item is successful.
+:param setup_test_inventory: Fixture to set up the test inventory database.
+:param sample_item2: Fixture for a sample item data dictionary (item_id: 2).</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="database2.html" class="btn btn-neutral float-left" title="database2 module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="database3.html" class="btn btn-neutral float-right" title="database3 module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Mariam Abbas Mahdi Ajrouch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

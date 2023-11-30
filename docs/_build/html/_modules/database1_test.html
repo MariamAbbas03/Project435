@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>database1_test &mdash; PROJECT435 00.00.01 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d7bb8d4d"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PROJECT435
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Project435</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PROJECT435</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">database1_test</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for database1_test</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">from</span> <span class="nn">database1</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="setup_test_database">
+<a class="viewcode-back" href="../database1_test.html#database1_test.setup_test_database">[docs]</a>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">setup_test_database</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fixture to set up a test database and create the customers table.  </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">create_customers_table</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="sample_customer1">
+<a class="viewcode-back" href="../database1_test.html#database1_test.sample_customer1">[docs]</a>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">sample_customer1</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fixture for a sample customer.</span>
+<span class="sd">    :return: Dictionary representing a sample customer.</span>
+<span class="sd">    :rtype: dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;full_name&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;john_doe&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;secure_password&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe Street, Innsbruck&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;gender&#39;</span><span class="p">:</span> <span class="s1">&#39;Male&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;marital_status&#39;</span><span class="p">:</span> <span class="s1">&#39;Single&#39;</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="sample_customer2">
+<a class="viewcode-back" href="../database1_test.html#database1_test.sample_customer2">[docs]</a>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">sample_customer2</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fixture for another sample customer</span>
+<span class="sd">    :return: Dictionary representing a sample customer.</span>
+<span class="sd">    :rtype: dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;customer_id&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;full_name&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe 2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;john_doe2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;secure_password2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe Street2, Innsbruck&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;gender&#39;</span><span class="p">:</span> <span class="s1">&#39;Male&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;marital_status&#39;</span><span class="p">:</span> <span class="s1">&#39;Married&#39;</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="sample_customer3">
+<a class="viewcode-back" href="../database1_test.html#database1_test.sample_customer3">[docs]</a>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">sample_customer3</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fixture for another sample customer.</span>
+<span class="sd">    :return: Dictionary representing a sample customer.</span>
+<span class="sd">    :rtype: dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;customer_id&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s1">&#39;full_name&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe 3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;john_doe3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;secure_password23&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe Street233, Innsbruck&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;gender&#39;</span><span class="p">:</span> <span class="s1">&#39;Male&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;marital_status&#39;</span><span class="p">:</span> <span class="s1">&#39;Married&#39;</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="sample_customer4">
+<a class="viewcode-back" href="../database1_test.html#database1_test.sample_customer4">[docs]</a>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">sample_customer4</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fixture for another sample customer.</span>
+<span class="sd">    :return: Dictionary representing a sample customer.</span>
+<span class="sd">    :rtype: dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;full_name&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe 4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;john_doe4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;secure_password66823&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe Street233, 55Innsbruck&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;gender&#39;</span><span class="p">:</span> <span class="s1">&#39;Male&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;marital_status&#39;</span><span class="p">:</span> <span class="s1">&#39;Married&#39;</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="test_connect_to_db">
+<a class="viewcode-back" href="../database1_test.html#database1_test.test_connect_to_db">[docs]</a>
+<span class="k">def</span> <span class="nf">test_connect_to_db</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test if connecting to the database is successful.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">connect_to_db</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="test_create_customers_table">
+<a class="viewcode-back" href="../database1_test.html#database1_test.test_create_customers_table">[docs]</a>
+<span class="k">def</span> <span class="nf">test_create_customers_table</span><span class="p">(</span><span class="n">setup_test_database</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test if creating the customers table is successful.</span>
+<span class="sd">    The setup_test_database fixture ensures that the table is created before running this test.</span>
+<span class="sd">    :param setup_test_database: Fixture to set up the test database.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">get_all_customers</span><span class="p">())</span> <span class="o">==</span> <span class="mi">0</span>  <span class="c1"># Check if the table is initially empty</span></div>
+
+
+<div class="viewcode-block" id="test_insert_customer">
+<a class="viewcode-back" href="../database1_test.html#database1_test.test_insert_customer">[docs]</a>
+<span class="k">def</span> <span class="nf">test_insert_customer</span><span class="p">(</span><span class="n">setup_test_database</span><span class="p">,</span> <span class="n">sample_customer1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test if inserting a customer is successful.</span>
+<span class="sd">    :param setup_test_database: Fixture to set up the test database.</span>
+<span class="sd">    :param sample_customer1: Fixture for a sample customer data dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inserted_customer</span> <span class="o">=</span> <span class="n">insert_customer</span><span class="p">(</span><span class="n">sample_customer1</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s1">&#39;customer_id&#39;</span> <span class="ow">in</span> <span class="n">inserted_customer</span>  <span class="c1"># Check if customer_id is generated</span>
+    <span class="k">assert</span> <span class="n">inserted_customer</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">sample_customer1</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="test_insert_customer_duplicate_username">
+<a class="viewcode-back" href="../database1_test.html#database1_test.test_insert_customer_duplicate_username">[docs]</a>
+<span class="k">def</span> <span class="nf">test_insert_customer_duplicate_username</span><span class="p">(</span><span class="n">setup_test_database</span><span class="p">,</span> <span class="n">sample_customer1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test if inserting a customer with a duplicate username raises an error.</span>
+<span class="sd">    :param setup_test_database: Fixture to set up the test database.</span>
+<span class="sd">    :param sample_customer1: Fixture for a sample customer data dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">sqlite3</span><span class="o">.</span><span class="n">IntegrityError</span><span class="p">):</span>
+        <span class="n">insert_customer</span><span class="p">(</span><span class="n">sample_customer1</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="test_get_all_customers">
+<a class="viewcode-back" href="../database1_test.html#database1_test.test_get_all_customers">[docs]</a>
+<span class="k">def</span> <span class="nf">test_get_all_customers</span><span class="p">(</span><span class="n">setup_test_database</span><span class="p">,</span> <span class="n">sample_customer1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test if getting all customers returns the correct number of customers.</span>
+<span class="sd">    :param setup_test_database: Fixture to set up the test database.</span>
+<span class="sd">    :param sample_customer1: Fixture for a sample customer data dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">get_all_customers</span><span class="p">())</span> <span class="o">==</span> <span class="mi">1</span>  <span class="c1">#already inserted 1 customer in a previous test.</span></div>
+
+
+
+<div class="viewcode-block" id="test_get_customer_by_username">
+<a class="viewcode-back" href="../database1_test.html#database1_test.test_get_customer_by_username">[docs]</a>
+<span class="k">def</span> <span class="nf">test_get_customer_by_username</span><span class="p">(</span><span class="n">setup_test_database</span><span class="p">,</span> <span class="n">sample_customer1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test if getting a customer by username returns the correct customer.</span>
+<span class="sd">    :param setup_test_database: Fixture to set up the test database.</span>
+<span class="sd">    :param sample_customer1: Fixture for a sample customer data dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">retrieved_customer</span> <span class="o">=</span> <span class="n">get_customer_by_username</span><span class="p">(</span><span class="n">sample_customer1</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="n">retrieved_customer</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">sample_customer1</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="test_update_customer">
+<a class="viewcode-back" href="../database1_test.html#database1_test.test_update_customer">[docs]</a>
+<span class="k">def</span> <span class="nf">test_update_customer</span><span class="p">(</span><span class="n">setup_test_database</span><span class="p">,</span> <span class="n">sample_customer2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test if updating a customer is successful.</span>
+<span class="sd">    :param setup_test_database: Fixture to set up the test database.</span>
+<span class="sd">    :param sample_customer2: Fixture for a sample customer data dictionary</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inserted_customer</span> <span class="o">=</span> <span class="n">insert_customer</span><span class="p">(</span><span class="n">sample_customer2</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s1">&#39;customer_id&#39;</span> <span class="ow">in</span> <span class="n">inserted_customer</span> <span class="ow">and</span> <span class="n">inserted_customer</span><span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Invalid customer_id&quot;</span>
+    <span class="n">updated_customer</span> <span class="o">=</span> <span class="n">update_customer</span><span class="p">(</span><span class="n">inserted_customer</span><span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">],</span> <span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">31</span><span class="p">})</span>
+    <span class="k">assert</span> <span class="s1">&#39;age&#39;</span> <span class="ow">in</span> <span class="n">updated_customer</span> <span class="ow">and</span> <span class="n">updated_customer</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;Update unsuccessful&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="test_delete_customer">
+<a class="viewcode-back" href="../database1_test.html#database1_test.test_delete_customer">[docs]</a>
+<span class="k">def</span> <span class="nf">test_delete_customer</span><span class="p">(</span><span class="n">setup_test_database</span><span class="p">,</span> <span class="n">sample_customer2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test if deleting a customer is successful.</span>
+<span class="sd">    :param setup_test_database: Fixture to set up the test database.</span>
+<span class="sd">    :param sample_customer2: Fixture for a sample customer data dictionary</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">delete_message</span> <span class="o">=</span> <span class="n">delete_customer</span><span class="p">(</span><span class="n">sample_customer2</span><span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="s1">&#39;status&#39;</span> <span class="ow">in</span> <span class="n">delete_message</span> <span class="ow">and</span> <span class="n">delete_message</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Customer deleted successfully&#39;</span></div>
+
+
+
+<div class="viewcode-block" id="test_charge_customer_wallet">
+<a class="viewcode-back" href="../database1_test.html#database1_test.test_charge_customer_wallet">[docs]</a>
+<span class="k">def</span> <span class="nf">test_charge_customer_wallet</span><span class="p">(</span><span class="n">setup_test_database</span><span class="p">,</span> <span class="n">sample_customer2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test if charging a customer&#39;s wallet is successful.</span>
+<span class="sd">    :param setup_test_database: Fixture to set up the test database.</span>
+<span class="sd">    :param sample_customer2: Fixture for a sample customer data dictionary</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inserted_customer</span> <span class="o">=</span> <span class="n">insert_customer</span><span class="p">(</span><span class="n">sample_customer2</span><span class="p">)</span>
+    <span class="n">updated_customer</span> <span class="o">=</span> <span class="n">charge_customer_wallet</span><span class="p">(</span><span class="n">inserted_customer</span><span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">],</span> <span class="mf">50.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">updated_customer</span><span class="p">[</span><span class="s1">&#39;wallet_balance&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">50.0</span></div>
+
+
+
+<div class="viewcode-block" id="test_deduce_money_from_wallet">
+<a class="viewcode-back" href="../database1_test.html#database1_test.test_deduce_money_from_wallet">[docs]</a>
+<span class="k">def</span> <span class="nf">test_deduce_money_from_wallet</span><span class="p">(</span><span class="n">setup_test_database</span><span class="p">,</span> <span class="n">sample_customer3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test if deducting money from a customer&#39;s wallet is successful.</span>
+<span class="sd">    Already inserted customer 2 in a previous test.</span>
+<span class="sd">    :param setup_test_database: Fixture to set up the test database.</span>
+<span class="sd">    :param sample_customer3: Fixture for a sample customer data dictionary </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inserted_customer</span> <span class="o">=</span> <span class="n">insert_customer</span><span class="p">(</span><span class="n">sample_customer3</span><span class="p">)</span>
+    <span class="n">charge_customer_wallet</span><span class="p">(</span><span class="n">inserted_customer</span><span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">],</span> <span class="mf">100.0</span><span class="p">)</span>
+    <span class="n">updated_customer</span> <span class="o">=</span> <span class="n">deduce_money_from_wallet</span><span class="p">(</span><span class="n">inserted_customer</span><span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">],</span> <span class="mf">30.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">updated_customer</span><span class="p">[</span><span class="s1">&#39;wallet_balance&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mf">70.0</span></div>
+
+
+
+<div class="viewcode-block" id="test_get_customer_by_id">
+<a class="viewcode-back" href="../database1_test.html#database1_test.test_get_customer_by_id">[docs]</a>
+<span class="k">def</span> <span class="nf">test_get_customer_by_id</span><span class="p">(</span><span class="n">setup_test_database</span><span class="p">,</span> <span class="n">sample_customer4</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test if getting a customer by ID returns the correct customer.</span>
+<span class="sd">    :param setup_test_database: Fixture to set up the test database.</span>
+<span class="sd">    :param sample_customer4: Fixture for a sample customer data dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inserted_customer</span> <span class="o">=</span> <span class="n">insert_customer</span><span class="p">(</span><span class="n">sample_customer4</span><span class="p">)</span>
+    <span class="n">retrieved_customer</span> <span class="o">=</span> <span class="n">get_customer_by_id</span><span class="p">(</span><span class="n">inserted_customer</span><span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="n">retrieved_customer</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">inserted_customer</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Mariam Abbas Mahdi Ajrouch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
