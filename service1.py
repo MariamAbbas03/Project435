@@ -98,4 +98,4 @@ def api_deduce_money_from_wallet(customer_id):
     return jsonify(deduce_money_from_wallet(customer_id, amount))
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=5000)

@@ -73,4 +73,4 @@ def api_deduce_item_from_stock(item_id):
     return jsonify(deduce_item_from_stock(item_id, quantity))
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=8000)

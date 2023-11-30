@@ -61,4 +61,4 @@ def api_get_customer_sales(customer_username):
         return jsonify({"error": "Customer not found"})
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=8080)
