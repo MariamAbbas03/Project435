@@ -57,7 +57,7 @@ def test_make_sale(setup_test_sales_database, sample_sale):
     """
     make_sale(sample_sale['customer_id'], sample_sale['item_id'])
     sales = get_customer_sales(sample_sale['customer_id'])
-    assert len(sales) == 0
+    assert len(sales) == 1
 
 def test_get_customer_sales(setup_test_sales_database, sample_sale):
     """
@@ -67,4 +67,4 @@ def test_get_customer_sales(setup_test_sales_database, sample_sale):
     :param sample_sale: Fixture for a sample sale data dictionary.
     """
     sales = get_customer_sales(sample_sale['customer_id'])
-    assert len(sales) == 0
+    assert len(sales) == 1

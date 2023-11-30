@@ -3,6 +3,7 @@ Module that contains functions for connecting to and managing an SQLite3 databas
 """
 
 import sqlite3
+from database2 import connect_to_dbi
 
 def connect_to_db():
     """
@@ -72,7 +73,7 @@ def get_customer_sales(customer_id):
     :param customer_id: The unique identifier for the customer.
     :type customer_id: int
 
-    :return: A list of dictionaries, where each dictionary represents a sale with sale_id, sale_date, 
+    :return: A list of dictionaries, where each dictionary represents a sale with sale_id, sale_date,
              item_name, and price_per_item details.
     :rtype: list
 
@@ -80,24 +81,40 @@ def get_customer_sales(customer_id):
     """
     sales = []
     try:
-        conn = connect_to_db()
-        conn.row_factory = sqlite3.Row
-        cur = conn.cursor()
-        cur.execute('''
-            SELECT sales.sale_id, sales.sale_date, inventory.name, inventory.price_per_item
+        conn_sales = connect_to_db()
+        conn_sales.row_factory = sqlite3.Row
+        cur_sales = conn_sales.cursor()
+        cur_sales.execute('''
+            SELECT sales.sale_id, sales.sale_date, sales.item_id
             FROM sales
-            JOIN inventory ON sales.item_id = inventory.item_id
             WHERE sales.customer_id = ?
         ''', (customer_id,))
-        rows = cur.fetchall()
+        rows_sales = cur_sales.fetchall()
 
-        for row in rows:
-            sale = dict(row)
+        conn_inventory = connect_to_dbi()
+        conn_inventory.row_factory = sqlite3.Row
+        cur_inventory = conn_inventory.cursor()
+
+        for row_sales in rows_sales:
+            cur_inventory.execute('''
+                SELECT inventory.name, inventory.price_per_item
+                FROM inventory
+                WHERE inventory.item_id = ?
+            ''', (row_sales['item_id'],))
+            row_inventory = cur_inventory.fetchone()
+
+            sale = {
+                'sale_id': row_sales['sale_id'],
+                'sale_date': row_sales['sale_date'],
+                'item_name': row_inventory['name'],
+                'price_per_item': row_inventory['price_per_item']
+            }
             sales.append(sale)
 
     except Exception as e:
         print(f"Error getting customer sales: {e}")
     finally:
-        conn.close()
+        conn_sales.close()
+        conn_inventory.close()
 
     return sales

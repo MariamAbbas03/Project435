@@ -6,13 +6,14 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from database3 import *
 from database1 import get_customer_by_username
-from database2 import get_item_by_name, deduce_item_from_stock
+from database2 import *
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 if __name__ == "__main__":
     create_sales_table()  # Create the sales table when the application runs
+    create_inventory_table()
 
 
 @app.route('/api/sales/make-sale', methods=['POST'])
@@ -25,11 +26,10 @@ def api_make_sale():
     """
     sale_data = request.get_json()
     customer_username = sale_data.get('customer_username')
-    item_name = sale_data.get('item_name')
-
-    if customer_username and item_name:
+    item_id = sale_data.get('item_id')
+    if customer_username and item_id:
         customer = get_customer_by_username(customer_username)
-        item = get_item_by_name(item_name)
+        item = get_item_by_id(item_id)
 
         if customer and item:
             if customer['wallet_balance'] >= item['price_per_item'] and item['count_in_stock'] > 0:
@@ -61,4 +61,4 @@ def api_get_customer_sales(customer_username):
         return jsonify({"error": "Customer not found"})
 
 if __name__ == "__main__":
-    app.run(port=8080)
+    app.run(port=8080, debug=True)

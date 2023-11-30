@@ -14,6 +14,10 @@ def connect_to_db():
     conn = sqlite3.connect('ecommerce_inventory.db')
     return conn
 
+def connect_to_dbi():
+    conn = sqlite3.connect('ecommerce_inventory.db')
+    return conn
+
 def create_inventory_table():
     """
     Creates a table named 'inventory' in the database if it does not already exist.

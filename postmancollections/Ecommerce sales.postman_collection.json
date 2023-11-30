@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "57e72fec-ade1-4eb4-9b94-8ffd6374a4d9",
+		"name": "Ecommerce sales",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31259093"
+	},
+	"item": [
+		{
+			"name": "Make Sale",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customer_username\": \"example_customer\",\n  \"item_name\": \"example_item\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/sales/make-sale",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"sales",
+						"make-sale"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Sales",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/sales/customer/example_customer",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"sales",
+						"customer",
+						"example_customer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
