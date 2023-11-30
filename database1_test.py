@@ -4,7 +4,7 @@ from database1 import *
 @pytest.fixture
 def setup_test_database():
     """
-    Fixture to set up a test database and create the customers table.
+    Fixture to set up a test database and create the customers table.  
     """
 
     create_customers_table()

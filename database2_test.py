@@ -3,12 +3,18 @@ from database2 import *
 
 @pytest.fixture
 def setup_test_inventory():
-    # Fixture to set up a test inventory database and create the inventory table
+    """
+    Fixture to set up a test inventory database and create the inventory table.
+    """
     create_inventory_table()
 
 @pytest.fixture
 def sample_item1():
-    # Fixture for a sample item data dictionary
+    """
+    Fixture for a sample item data dictionary.
+    :return: Dictionary representing a sample item.
+    :rtype: dict
+    """
     return {
         'name': 'Item 1',
         'category': 'electronics',
@@ -19,6 +25,11 @@ def sample_item1():
 
 @pytest.fixture
 def sample_item2():
+    """
+    Fixture for a sample item
+    :return: Dictionary representing a sample item.
+    :rtype: dict
+    """
     return {
         'item_id': 2,
         'name': 'Item 2',
@@ -30,6 +41,11 @@ def sample_item2():
 
 @pytest.fixture
 def sample_item3():
+    """
+    Fixture for a sample item data dictionary (item_id: 3).
+    :return: Dictionary representing a sample item.
+    :rtype: dict
+    """
     return {
         'item_id': 3,
         'name': 'Item 3',
@@ -41,6 +57,11 @@ def sample_item3():
 
 @pytest.fixture
 def sample_item4():
+    """
+    Fixture for a sample item data dictionary.
+    :return: Dictionary representing a sample item.
+    :rtype: dict
+    """
     return {
         'name': 'Item 4',
         'category': 'accessories',
@@ -50,33 +71,58 @@ def sample_item4():
     }
 
 def test_connect_to_db():
-    # Test if connecting to the inventory database is successful
+    """
+    Test if connecting to the inventory database is successful.
+    """
     assert connect_to_db() is not None
 
 def test_create_inventory_table(setup_test_inventory):
-    # Test if creating the inventory table is successful
-    # The setup_test_inventory fixture ensures that the table is created before running this test
+    """
+    Test if creating the inventory table is successful.
+    The setup_test_inventory fixture ensures that the table is created before running this test.
+    :param setup_test_inventory: Fixture to set up the test inventory database.
+    """
     assert len(get_all_items()) == 0  # Check if the table is initially empty
 
 def test_add_item(setup_test_inventory, sample_item1):
-    # Test if adding an item is successful
+    """
+    Test if adding an item is successful.
+    :param setup_test_inventory: Fixture to set up the test inventory database.
+    :param sample_item1: Fixture for a sample item data dictionary.
+    """
     added_item = add_item(sample_item1)
     assert 'item_id' in added_item  # Check if item_id is generated
     assert added_item['name'] == sample_item1['name']
 
 def test_get_all_items(setup_test_inventory, sample_item1):
-    # Test if getting all items returns the correct number of items
-    # Already added item 1 in a previous test
+    """
+    Test if getting all items returns the correct number of items.
+    Already added item 1 in a previous test.
+    :param setup_test_inventory: Fixture to set up the test inventory database.
+    :param sample_item1: Fixture for a sample item data dictionary.
+    """
     assert len(get_all_items()) == 1
 
 def test_get_item_by_id(setup_test_inventory, sample_item2):
-    # Test if getting an item by ID returns the correct item
+    """
+    Test if getting an item by ID returns the correct item.
+    :param setup_test_inventory: Fixture to set up the test inventory database.
+    :param sample_item2: Fixture for a sample item data dictionary (item_id: 2).
+    :return: None
+    :rtype: None
+    """
     added_item = add_item(sample_item2)
     retrieved_item = get_item_by_id(added_item['item_id'])
     assert retrieved_item['name'] == added_item['name']
 
 def test_get_item_by_name(setup_test_inventory, sample_item3):
-    # Test if getting an item by name returns the correct item
+    """
+    Test if getting an item by name returns the correct item.
+    :param setup_test_inventory: Fixture to set up the test inventory database.
+    :param sample_item3: Fixture for a sample item data dictionary (item_id: 3).
+    :return: None
+    :rtype: None
+    """
     added_item = add_item(sample_item3)
     try:
         retrieved_item = get_item_by_name(added_item['name'])
@@ -86,15 +132,22 @@ def test_get_item_by_name(setup_test_inventory, sample_item3):
         assert retrieved_item is None
 
 def test_update_item(setup_test_inventory, sample_item2):
-    # Test if updating an item is successful
+    """
+    Test if updating an item is successful.
+    :param setup_test_inventory: Fixture to set up the test inventory database.
+    :param sample_item2: Fixture for a sample item data dictionary (item_id: 2).
+    """
     added_item = add_item(sample_item2)
-    # Ensure that the added_item has a valid item_id
     assert 'item_id' in added_item and added_item['item_id'] is not None, "Invalid item_id"
     updated_item = update_item(added_item['item_id'], {'price_per_item': 30.0})
     assert 'price_per_item' in updated_item and updated_item['price_per_item'] == 30.0, "Update unsuccessful"
 
 def test_deduce_item_from_stock(setup_test_inventory, sample_item4):
-    # Test if deducting an item from stock is successful
+    """
+    Test if deducting an item from stock is successful.
+    :param setup_test_inventory: Fixture to set up the test inventory database.
+    :param sample_item4: Fixture for a sample item data dictionary.
+    """
     added_item = add_item(sample_item4)
     updated_item = deduce_item_from_stock(added_item['item_id'], 5)
     assert updated_item['count_in_stock'] == 10
